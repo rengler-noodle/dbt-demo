@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: customer_nation
+    columns:
+      - name: c_custkey
+        tests:
+          - unique
+          - not_null
+  - name: russia_open_orders
+    columns:
+      - name: c_custkey
+        tests:
+          - relationships:
+              to: ref('customer_nation')
+              field: c_custkey
